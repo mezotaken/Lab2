@@ -127,7 +127,7 @@ TEST(Matrix, can_assign_matrices_of_different_size)
 	EXPECT_EQ(m2,m1);
 }
 
-TEST(TMatrix, can_add_matrices_with_equal_size)
+TEST(Matrix, can_add_matrices_with_equal_size)
 {
 	Matrix<int> m1(5);
 	m1[1][1] = 2;
@@ -137,14 +137,14 @@ TEST(TMatrix, can_add_matrices_with_equal_size)
 	EXPECT_EQ(m3[1][1], 4);
 }
 
-TEST(TMatrix, cant_add_matrices_with_not_equal_size)
+TEST(Matrix, cant_add_matrices_with_not_equal_size)
 {
 	Matrix<int> m1(5);
 	Matrix<int> m2(8);
 	ASSERT_ANY_THROW(Matrix<int> m3(m1 + m2););
 }
 
-TEST(TMatrix, can_subtract_matrices_with_equal_size)
+TEST(Matrix, can_subtract_matrices_with_equal_size)
 {
 	Matrix<int> m1(5);
 	m1[1][1] = 2;
@@ -154,7 +154,7 @@ TEST(TMatrix, can_subtract_matrices_with_equal_size)
 	EXPECT_EQ(m3[1][1], 0);
 }
 
-TEST(TMatrix, cant_subtract_matrixes_with_not_equal_size)
+TEST(Matrix, cant_subtract_matrixes_with_not_equal_size)
 {
 	Matrix<int> m1(5);
 	Matrix<int> m2(8);
