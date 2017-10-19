@@ -105,18 +105,6 @@ TEST(Vector, compare_vectors_with_different_size_return_false)
 	EXPECT_NE(v1, v2);
 }
 
-TEST(Vector, compare_vectors_with_equal_size_different_stind)
-{
-	Vector <int> v1(5,7);
-	v1[7] = 15;
-	Vector <int> v2(5,3);
-	v2[3] = 15;
-	Vector <int> v3(5, 15);
-	v3[15] = 6;
-	EXPECT_EQ(v1, v2);
-	EXPECT_NE(v2, v3);
-}
-
 TEST(Vector, can_assign_vector_to_itself)
 {
 	Vector<int> v(5);

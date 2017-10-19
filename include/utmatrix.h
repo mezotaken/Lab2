@@ -133,7 +133,7 @@ template <class ValType>									// Сравнение
 bool Vector<ValType>::operator==(const Vector &v) const
 {
 	bool eq = true;
-	if (Size != v.Size)
+	if (Size != v.Size || StInd!=v.StInd)
 		eq = false;
 	else
 	{
@@ -156,7 +156,7 @@ Vector<ValType>& Vector<ValType>::operator=(const Vector &v)
 {
 	if (this != &v)
 	{
-		delete pVect;
+		delete[] pVect;
 		Size = v.Size;
 		StInd = v.StInd;
 		pVect = new ValType[Size];
@@ -201,7 +201,7 @@ Vector<ValType> Vector<ValType>::operator*(const ValType &val) const
 template <class ValType>									// Сложение
 Vector<ValType> Vector<ValType>::operator+(const Vector<ValType> &v) const
 {
-	if (Size == v.Size)
+	if (Size == v.Size && StInd == v.StInd)
 	{
 		Vector<ValType> res(*this);
 		for (int i = 0; i < Size; i++)
@@ -215,7 +215,7 @@ Vector<ValType> Vector<ValType>::operator+(const Vector<ValType> &v) const
 template <class ValType>									// Вычитание
 Vector<ValType> Vector<ValType>::operator-(const Vector<ValType> &v) const
 {
-	if (Size == v.Size)
+	if (Size == v.Size && StInd == v.StInd)
 	{
 		Vector<ValType> res(*this);
 		for (int i = 0; i < Size; i++)
@@ -229,7 +229,7 @@ Vector<ValType> Vector<ValType>::operator-(const Vector<ValType> &v) const
 template <class ValType>									// Скалярное произведение
 ValType Vector<ValType>::operator*(const Vector<ValType> &v) const
 {
-	if (Size == v.Size)
+	if (Size == v.Size && StInd ==  v.StInd)
 	{
 		ValType res = 0;
 		for (int i = 0; i < Size; i++)
